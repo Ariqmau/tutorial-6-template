@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://btxj7qg63smil"]
+
+[ext_resource type="FontFile" uid="uid://d81fg38cspa0" path="res://assets/Fonts/PersonifiedUXRegular.ttf" id="1_ow34m"]
+[ext_resource type="FontFile" uid="uid://bpaegc6lsovqt" path="res://assets/Fonts/CC Wild Words Roman.ttf" id="2_l72w3"]
+[ext_resource type="Script" uid="uid://bar03hvwkv7ey" path="res://scripts/SceneLoad_button.gd" id="3_826wr"]
+[ext_resource type="Script" uid="uid://dd5wdjrf2ubma" path="res://scripts/LevelLoad_button.gd" id="3_ow34m"]
+[ext_resource type="Texture2D" uid="uid://dwc8dd51xoi1h" path="res://assets/kenney_platformerpack/Spritesheets/spritesheet_alien.png" id="4_ucygd"]
+
+[node name="MainMenu" type="MarginContainer" unique_id=1516984220]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=898665817]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=1837106676]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 60
+alignment = 1
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer" unique_id=61448471]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.48076272, 0.5800495, 0.9870364, 1)
+theme_override_fonts/font = ExtResource("1_ow34m")
+theme_override_font_sizes/font_size = 150
+text = "ALIEN UI"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer" unique_id=624918514]
+layout_mode = 2
+
+[node name="LinkButton" type="LinkButton" parent="HBoxContainer/VBoxContainer/VBoxContainer" unique_id=959688256]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.5254902, 0.83137256, 1)
+theme_override_fonts/font = ExtResource("2_l72w3")
+theme_override_font_sizes/font_size = 30
+text = "New Game"
+script = ExtResource("3_ow34m")
+scene_to_load = "Level 1"
+
+[node name="LinkButton2" type="LinkButton" parent="HBoxContainer/VBoxContainer/VBoxContainer" unique_id=186031108]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.81433976, 0.8772694, 1, 1)
+theme_override_font_sizes/font_size = 30
+text = "Stage Select"
+script = ExtResource("3_826wr")
+scene_to_load = "SelectStage"
+
+[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer" unique_id=1336634908]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/CenterContainer" unique_id=1807455552]
+layout_mode = 2
+texture = ExtResource("4_ucygd")
+
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/VBoxContainer/LinkButton" to="HBoxContainer/VBoxContainer/VBoxContainer/LinkButton" method="_on_New_Game_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/VBoxContainer/LinkButton2" to="HBoxContainer/VBoxContainer/VBoxContainer/LinkButton2" method="_on_New_Scene_pressed"]
